@@ -1,0 +1,167 @@
+header, hgroup, nav, footer, figure, figcaption, aside, section, article {
+	display: block;
+}
+
+/* 
+Blue background with the gradient image anchored to the
+top and repeating as necesary in the x direction.
+*/
+body {
+    background-color: #00569f;
+    background-image: url(ptrbackground.jpg);
+    background-repeat: repeat-x;
+    background-position: top left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.9em;
+}
+
+/*
+wrapper contains the entire page contents and hence
+it's primary job is to set the width and height then
+set the grid layout. 
+*/
+#wrapper {
+	width: 80vw;
+	height: fit-content;
+	min-width: 600px;
+	margin: 5vh auto auto auto;
+
+	display: grid;
+	/* 
+	the solitary 1fr takes up all remaining space after the auto blocks  
+	fit their content. 
+	*/
+	grid-template-rows: auto 1fr auto;
+	grid-template-columns: auto 1fr;
+	grid-template-areas: 
+		"top top"
+		"left right"
+		"left bottom"
+	;
+}
+
+/* 
+white with dark grey text anchored to the right between the 
+header and footer.
+*/
+#content {
+	background-color: white;
+	grid-area: right;
+	padding: 1em;
+	color: #666666;
+}
+
+/*
+Light blue background, snaps to the left side below the header
+*/
+nav {
+	background-color: lightblue;
+	grid-area: left;
+	padding: 1em 2em 1em 1em;
+	width: fit-content;
+}
+
+/* 
+Margins set to 0 as it's handeled by the acual nav block.
+List style and position are present to override the general ul
+element used in the body.
+*/
+nav ul {
+	font-size: 1.2em;
+	font-weight: bold;
+	list-style: none;
+	list-style-position: outside;
+	padding-left: 0;
+	margin-left: 0;
+	padding-top: 0;
+	margin-top: 0;
+}
+
+/* 
+I couldn't quite figure out what the color should be, however
+I think i've demonstrated I can set colors. 
+ */
+nav a {
+	text-decoration: none;
+	color: black;
+}
+nav a:visited {
+	color: #344873;
+}
+nav a:hover {
+	color: #FFFFFF;
+}
+
+/*
+Body ul with the custom image bullets flush with the text
+*/
+ul {
+	list-style-image: url(marker.gif);
+	list-style-position: inside;
+}
+
+/* Again couldn't quite glean the color but this is close. */
+.resort {
+	font-weight: bold;
+	color: slategray;
+	margin-bottom: 0;
+}
+
+/* 
+Image with text wrap around and right padding to align with the text in the body
+*/
+img {
+	float: left;
+	padding-right: 2em;	
+}
+
+/*
+Header has the faded out sunset image which takes up the entire
+height of the block but not the width.
+Header takes up the top two cells of the grid.
+*/
+h1 {
+	margin: 0;
+	padding: 10px;
+}
+header {
+	background-size: auto 100%;
+	background-color: #000033;
+	grid-area: top;
+	background-image: url(sunset.jpg);
+	background-repeat: no-repeat;
+	background-position: right;
+	width: auto;
+	height: fit-content;
+	color: white
+}
+
+
+h2 {
+	color: #3399CC;
+}
+h1,
+h2 {
+	font-family: Georgia, "Times New Roman", serif;
+}
+#contact {
+	font-size: 90%;
+}
+dt {
+	color: #000033;
+}
+
+/*
+Lives in the same column as the body and has the same background color 
+so they look like the same block, even though footer occupies the bottom-right
+square of the grid. 
+*/
+footer {
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 0.8em;
+	grid-area: bottom;
+	background-color: white;
+	padding: 2em;
+	font-style: italic;
+	color: #666666;
+}
